@@ -13,8 +13,8 @@
 {
   "Qiniu": {
     "Mac": {
-      "AccessKey": "9pTp4aqVjcwPbUbvkhuBVxzDtuCAMjz12udwARec",
-      "SecretKey": "XccNZSr21uQtzyZeGeqbNgKPsvLyDCX7fitRCEyB"
+      "AccessKey": "xx",
+      "SecretKey": "xx"
     }
   },
   "Logging": {
