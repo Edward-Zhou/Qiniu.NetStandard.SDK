@@ -1,4 +1,4 @@
-namespace Qiniu.Util
+namespace QiniuSdk.Util
 {
     /// <summary>
     ///     MD5算法的3rdParty实现

@@ -23,6 +23,10 @@ namespace QiniuSdk
             services.AddScoped<Config>();
             services.AddScoped<ZoneHelper>();
             services.AddScoped<IQiniu, Qiniu>();
+            services.AddScoped<IBucketManager, BucketManager>();
+            services.AddScoped<IDownloadManager, DownloadManager>();
+            services.AddScoped<IOperationManager, OperationManager>();
+
             return services;
         }
     }

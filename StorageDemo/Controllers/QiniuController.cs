@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QiniuSdk;
+using QiniuSdk.Storage;
 
 namespace StorageDemo.Controllers
 {
@@ -19,7 +20,13 @@ namespace StorageDemo.Controllers
         }
         public async Task<IActionResult> Upload(IFormFile file)
         {
-            var result = await _qiniu.UploadStream(file.OpenReadStream(), "", null);
+            var putPolicy = new PutPolicy
+            {
+                Scope = $"goldhouse",
+                DeleteAfterDays = 1
+            };
+
+            var result = await _qiniu.UploadStream(file.OpenReadStream(), putPolicy, "Test.txt", null);
             return Ok(result);
         }
     }
