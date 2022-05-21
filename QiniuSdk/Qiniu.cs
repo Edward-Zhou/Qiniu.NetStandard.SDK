@@ -21,7 +21,7 @@ namespace QiniuSdk
         }
 
         #region Storage
-        public async Task<HttpResult> UploadStream(Stream stream, PutPolicy putPolicy, string key, PutExtra putExtra)
+        public async Task<HttpResult> UploadStream(Stream stream, PutPolicy putPolicy, string key, PutExtra putExtra = null)
         {
             var token = _auth.CreateUploadToken(putPolicy.ToJsonString());
             var result = await _formUploader.UploadStream(stream, key, token, putExtra);

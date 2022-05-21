@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 using QiniuSdk.Http;
 using QiniuSdk.Util;
 
@@ -24,12 +25,12 @@ namespace QiniuSdk.Storage
         /// </summary>
         /// <param name="mac"></param>
         /// <param name="config"></param>
-        public OperationManager(Mac mac
+        public OperationManager(IOptions<Mac> mac
             , Config config
             , IAuth auth
             , HttpManager httpManager)
         {
-            _mac = mac;
+            _mac = mac.Value;
             _auth = auth;
             _config = config;
             _httpManager = httpManager;
