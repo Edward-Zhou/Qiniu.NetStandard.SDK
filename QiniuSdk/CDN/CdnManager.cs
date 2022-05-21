@@ -295,7 +295,7 @@ namespace QiniuSdk.CDN
         {
             var expireAt = UnixTimestamp.GetUnixTimestamp(expireInSeconds);
             var expireHex = expireAt.ToString("x");
-            var path = $"/{Uri.EscapeUriString(fileName)}";
+            var path = $"/{Uri.EscapeDataString(fileName)}";
             var toSign = $"{encryptKey}{path}{expireHex}";
             var sign = Hashing.CalcMd5X(toSign);
             string finalUrl;

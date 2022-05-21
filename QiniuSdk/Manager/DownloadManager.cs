@@ -54,7 +54,7 @@ namespace QiniuSdk.Storage
         /// <returns>公开空间文件下载链接</returns>
         public string CreatePublishUrl(string domain, string fileName)
         {
-            return $"{domain}/{Uri.EscapeUriString(fileName)}";
+            return $"{domain}/{Uri.EscapeDataString(fileName)}";
         }
 
         /// <summary>
