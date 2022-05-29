@@ -8,6 +8,9 @@ namespace QiniuSdk
     {
         public Mac Mac { get; set; }
         public HttpOptions HttpOptions { get; set; }
+        public string BucketName { get; set; }
+        public string DomainName { get; set; }
+
     }
     public class HttpOptions
     {
