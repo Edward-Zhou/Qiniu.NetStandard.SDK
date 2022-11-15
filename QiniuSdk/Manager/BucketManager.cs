@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 using QiniuSdk.Http;
 using QiniuSdk.Util;
 
@@ -22,9 +23,9 @@ namespace QiniuSdk.Storage
         /// </summary>
         /// <param name="mac"></param>
         /// <param name="config"></param>
-        public BucketManager(Mac mac, IAuth auth, Config config)
+        public BucketManager(IOptions<Mac> mac, IAuth auth, Config config)
         {
-            _mac = mac;
+            _mac = mac.Value;
             _auth = auth;
             _httpManager = new HttpManager();
             _config = config;

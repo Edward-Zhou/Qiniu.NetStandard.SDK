@@ -27,7 +27,7 @@ namespace QiniuSdk.Util
 
         private string EncodedSign(byte[] data)
         {
-            var hmac = new HMACSHA1(Encoding.UTF8.GetBytes(_mac.SecretKey));
+            using var hmac = new HMACSHA1(Encoding.UTF8.GetBytes(_mac.SecretKey));
             var digest = hmac.ComputeHash(data);
             return Base64.UrlSafeBase64Encode(digest);
         }
@@ -102,7 +102,7 @@ namespace QiniuSdk.Util
                     buffer.Write(body, 0, body.Length);
                 }
 
-                var hmac = new HMACSHA1(Encoding.UTF8.GetBytes(_mac.SecretKey));
+                using var hmac = new HMACSHA1(Encoding.UTF8.GetBytes(_mac.SecretKey));
                 var digest = hmac.ComputeHash(buffer.ToArray());
                 var digestBase64 = Base64.UrlSafeBase64Encode(digest);
                 return $"{_mac.AccessKey}:{digestBase64}";

@@ -8,6 +8,6 @@ namespace QiniuSdk
 {
     public interface IQiniu
     {
-        Task<HttpResult> UploadStream(Stream stream, PutPolicy putPolicy, string key, PutExtra putExtra);
+        Task<HttpResult> UploadStream(Stream stream, PutPolicy putPolicy, string key, PutExtra putExtra = null);
     }
 }
